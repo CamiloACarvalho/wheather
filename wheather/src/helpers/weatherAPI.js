@@ -1,4 +1,6 @@
 // Remova os comentários a medida que for implementando as funções
+import { Swal } from 'sweetalert2';
+
 const token = import.meta.env.VITE_TOKEN;
 
 export const searchCities = async (term) => {
@@ -10,7 +12,11 @@ export const searchCities = async (term) => {
     }
     return data;
   } catch (error) {
-    window.alert(error.message);
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: `${error.message}`,
+    });
   }
 };
 
